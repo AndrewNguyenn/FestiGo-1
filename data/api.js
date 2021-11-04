@@ -2,7 +2,6 @@ const topics = [
     {
       name: "Languages",
       id: "languages",
-      description: "A JavaScript library for building user interfaces",
       resources: [
         {
           src: "../assets/js.png",
@@ -65,7 +64,6 @@ const topics = [
     {
       name: "Tech Stack",
       id: "tech_stack",
-      description: "Typed JavaScript at Any Scale.",
       resources: [
         {
           name: "Why TypeScript?",
@@ -102,7 +100,6 @@ const topics = [
     {
       name: "React Router",
       id: "react-router",
-      description: "Declarative, component based routing for React",
       resources: [
         {
           name: "Code Splitting with React, React.lazy, and React Router",

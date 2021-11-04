@@ -12,7 +12,6 @@ const Home = () => {
                     The Developer's Body of Knowledge
                 </div>
             </div>
-
             <div className="userInput">
                 <label>X-Query:
                 </label>
@@ -25,16 +24,16 @@ const Home = () => {
                 <Link to="/topics/tech_stack" className="tech_stack">
                     <button>Tech Stack</button>
                 </Link>
-                <Link to="/topics/Algorithms" className="tech_stack">
+                <Link to="/topics/algorithms" className="tech_stack">
                     <button>Algorithms</button>
                 </Link>
-                <Link to="/topics/Articles" className="tech_stack">
+                <Link to="/topics/articles" className="tech_stack">
                     <button>Articles</button>
                 </Link>
-                <Link to="/topics/Memes" className="tech_stack">
+                <Link to="/topics/memes" className="tech_stack">
                     <button>Memes</button>
                 </Link>
-                <Link to="/topics/Hack_Music" className="tech_stack">
+                <Link to="/topics/hack_music" className="tech_stack">
                     <button>Hack Music</button>
                 </Link>
             </div>

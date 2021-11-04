@@ -6,7 +6,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 0px 20px;
     background-color: rgb(177, 204, 219);
     font-size: 30px;
 }
@@ -23,10 +22,36 @@ body{
     display: flex;
     margin-left: 20px;
 }
-.nav-items{
-    display:flex;
-    padding-right: 15px;
+
+.nav-items button {
+    margin: 5px;
+    height: 40px;
+    width: 105px;
+    font-size: 15px;
+    font-family: monospace;
+    background-color: transparent;
+    box-shadow: 3px 1px 3px black;
 }
+
+.nav-items button:hover {
+    background-color:  rgba(232, 210, 171, 0.817)
+}
+
+
+.topics button {
+    width: 100px;
+    height: 75px;
+    margin: 5px;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: monospace;
+    box-shadow: 3px 1px 3px black;
+}
+.topics button:hover {
+    background-color:  rgba(232, 210, 171, 0.817)
+}
+
 
 .title{
     font-size: 100px;
@@ -55,13 +80,43 @@ body{
 .topicTitle{
     font-size: 20px;
 }
+.userInput{
+    display:flex;
+    align-items: center;
+    background-color: rgb(255, 178, 36);
+}
 
+label{
+    font-weight: bold;
+    font-size:20px;
+}
+
+input{
+    width: 400px;
+    height: 25px;
+}
 .topics{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 0px 20px;
+    background-color:  rgb(222, 203, 203);
+    border: none;
 }
+
+.topics button {
+    width: 100px;
+    height: 75px;
+    margin: 5px;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: monospace;
+    box-shadow: 3px 1px 3px black;
+}
+.topics button:hover {
+    background-color:  rgba(232, 210, 171, 0.817)
+}
+
 
 .topic{
     display: flex;
@@ -81,8 +136,9 @@ body{
     margin-right:20px;
     //height: 100px;
 }
-.topic-desc{
+.topic-desc-container{
     width: 50%;
+    height: 60%;
     margin-right: 20px;
     padding-bottom: 40px;
     border: solid 3px rgb(129, 155, 189); 
@@ -92,10 +148,13 @@ body{
     padding-bottom:10px;
     text-decoration: none;
     font-weight: bold;
-    color:rgb(8, 37, 75);
     cursor: pointer;
-}
+    color:rgb(10, 77, 165);
 
+}
+.topic-desc{
+    margin-top: 10px;
+}
 .topicName:hover{
     color:black;
 }

@@ -9,6 +9,8 @@ import {
 import Nav from "./components/Nav.jsx";
 import Home from "./components/Home.jsx";
 import TopicsDisplay from "./components/TopicsDisplay.jsx";
+import SpecTopicDisplay from "./components/SpecTopicDisplay.jsx"
+
 
 import "./scss/styles.scss";
 
@@ -21,6 +23,8 @@ const App = props => {
                     component={Home}/>
                 <Route exact path="/topics/:topicId"
                     component={TopicsDisplay}/>
+                <Route exact path="/topics/:topicId/:topicName"
+                    component={SpecTopicDisplay}/>
             </Switch>
         </Router>
     );
