@@ -7,18 +7,56 @@ const topics = [
         {
           src: "../assets/js.png",
           id: "javascript",
+          topicName:"Javascript",
           description:
             "In this post you'll learn why the React team dedicated so many resources to creating and releasing React Hooks. Along the way, you'll also get a soft introduction to the main aspects of the React Hooks API."
         },
         {
           src: "../assets/java.png",
           id: "java",
+          topicName:"Java",
           description:
             "In this post you'll learn how to properly use props to pass data to components in React."
         },
         {
           src: "../assets/py.png",
           id: "python",
+          topicName:"Python",
+          description:
+            "In this post you'll learn how and why you can use React's useRef Hook to persist values across renders without causing a re-render."
+        },
+        {
+          src: "../assets/c.png",
+          id: "c",
+          topicName:"C",
+          description:
+            "In this post you'll learn how and why you can use React's useRef Hook to persist values across renders without causing a re-render."
+        },
+        {
+          src: "../assets/c#.png",
+          id: "c_sharp",
+          topicName:"C#",
+          description:
+            "In this post you'll learn how and why you can use React's useRef Hook to persist values across renders without causing a re-render."
+        },
+        {
+          src: "../assets/c++.png",
+          id: "c++",
+          topicName:"C++",
+          description:
+            "In this post you'll learn how and why you can use React's useRef Hook to persist values across renders without causing a re-render."
+        },
+        {
+          src: "../assets/swift.png",
+          id: "swift",
+          topicName:"Swift",
+          description:
+            "In this post you'll learn how and why you can use React's useRef Hook to persist values across renders without causing a re-render."
+        },
+        {
+          src: "../assets/php.png",
+          id: "php",
+          topicName:"PHP",
           description:
             "In this post you'll learn how and why you can use React's useRef Hook to persist values across renders without causing a re-render."
         }

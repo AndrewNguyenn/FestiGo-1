@@ -1,15 +1,19 @@
+body{
+    font-family: monospace;
+}
+
 .navbar {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px 0px 20px;
     background-color: rgb(177, 204, 219);
-    font-size: larger;
+    font-size: 30px;
 }
 
 .logo{
-    margin-left: 10em;
-    margin-right: 10em;
+    margin-right: 15em;
+    margin-left: 5em;
 }
 
 .topic-image{
@@ -17,11 +21,11 @@
 
 .nav-list{
     display: flex;
-    margin-left: 15em;
+    margin-left: 20px;
 }
 .nav-items{
     display:flex;
-    margin: 0px .3em;
+    padding-right: 15px;
 }
 
 .title{
@@ -43,6 +47,15 @@
     padding: 20px 0px 20px;
 }
 
+.topicsDisplay{
+    padding-left: 40px;
+    padding-right:40px;
+}
+
+.topicTitle{
+    font-size: 20px;
+}
+
 .topics{
     display: flex;
     justify-content: center;
@@ -56,21 +69,35 @@
     border-radius: 5px;
     height: 250px;
     margin: 10px 0px 10px;
-    cursor: pointer;
     align-items: center;
     justify-content: space-between;
-
-
-
 }
+
+
+
 
 .topic-image{
-    margin-left: 10px;
+    margin-left: 50px;
+    margin-right:20px;
     //height: 100px;
 }
-
 .topic-desc{
-    padding-right: 300px;
+    width: 50%;
+    margin-right: 20px;
+    padding-bottom: 40px;
+    border: solid 3px rgb(129, 155, 189); 
+}
+.topicName{
+    font-size: 35px;
+    padding-bottom:10px;
+    text-decoration: none;
+    font-weight: bold;
+    color:rgb(8, 37, 75);
+    cursor: pointer;
+}
+
+.topicName:hover{
+    color:black;
 }
 
 
