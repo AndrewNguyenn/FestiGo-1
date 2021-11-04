@@ -17,7 +17,7 @@ import "./scss/styles.scss";
 const App = props => {
     return (
         <Router>
-            <Nav />
+            <Nav/>
             <Switch>
                 <Route exact path="/"
                     component={Home}/>

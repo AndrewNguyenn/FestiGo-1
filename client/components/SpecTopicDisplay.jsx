@@ -1,11 +1,12 @@
 import React from 'react';
 import {useParams, BrowserRouter as Router} from 'react-router-dom';
 import {getTopic, getResource, getTopics} from "../../data/api.js";
-import Topic from "./Topic.jsx";
+//import Topic from "./Topic.jsx";
 
 
-const SpecTopicDisplay = () => {
+const SpecTopicDisplay = (props) => {
     const topics = getTopics();
+    const{propTopicName} = props;
     // const {topicId} = useParams();
 
     // const title = topics.find(({id}) => id === topicId).name;
@@ -25,8 +26,8 @@ const SpecTopicDisplay = () => {
     //         ={idx}
     //         key={idx}/>
     // });
-    const{topicId, topicName} = useParams();
-    console.log(topicId, topicName)
+    //const{topicId, topicName} = useParams();
+    console.log(propTopicName);
     return (
         <div>I'm Working</div>
         // <div className="topicsDisplay">

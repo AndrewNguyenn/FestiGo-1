@@ -34,7 +34,8 @@ body{
 }
 
 .nav-items button:hover {
-    background-color:  rgba(232, 210, 171, 0.817)
+    background-color:  rgba(232, 210, 171, 0.817);
+    transform: scale(1.1);
 }
 
 
@@ -49,7 +50,8 @@ body{
     box-shadow: 3px 1px 3px black;
 }
 .topics button:hover {
-    background-color:  rgba(232, 210, 171, 0.817)
+    background-color:  rgba(232, 210, 171, 0.817);
+    transform: scale(1.1);
 }
 
 
@@ -128,6 +130,9 @@ input{
     justify-content: space-between;
 }
 
+.topic-desc-container:hover{
+    transform: scale(1.1);
+}
 
 
 
@@ -141,7 +146,6 @@ input{
     height: 60%;
     margin-right: 20px;
     padding-bottom: 40px;
-    border: solid 3px rgb(129, 155, 189); 
 }
 .topicName{
     font-size: 35px;

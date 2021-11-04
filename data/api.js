@@ -7,9 +7,14 @@ const topics = [
           src: "../assets/js.png",
           id: "javascript",
           topicName:"Javascript",
-          description:
-            "In this post you'll learn why the React team dedicated so many resources to creating and releasing React Hooks. Along the way, you'll also get a soft introduction to the main aspects of the React Hooks API."
-        },
+          topicContents: {
+            description: "I describe Javascript.",
+            documentation: [],
+            tutorials: [],
+            videos: []
+           },
+          },
+          
         {
           src: "../assets/java.png",
           id: "java",
