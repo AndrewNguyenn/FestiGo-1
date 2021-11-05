@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react'
 import {
     BrowserRouter as Router,
     Link,
@@ -6,11 +6,17 @@ import {
     useParams,
     Switch
 } from "react-router-dom";
-import "./scss/styles.scss";
+
+import  NavBar  from './components/NavBar';
+
+
+// import "./scss/styles.scss";
 
 const App = props => {
     return (
-        <div></div>
+        <div>
+            <NavBar />
+        </div>
     );
 };
 
