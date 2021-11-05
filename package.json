@@ -39,6 +39,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "nodemon": "^2.0.14",
+    "pg": "^8.7.1",
     "require": "^2.4.20",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
