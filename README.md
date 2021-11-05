@@ -1,3 +1,5 @@
 # I let you know where to travel
 
-# Yes we go !
+
+# Terence is adding text to the README to test git stuff
+
