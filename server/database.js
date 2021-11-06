@@ -1,20 +1,15 @@
 const fs = require('fs');
 const path = require('path');
 const { Pool } = require('pg');
-const db = require('../models/eventModels.js');
-
-
-
-const PG_URI = 'postgres://yvlhbcyx:aV-Cv5uemYSwC0tCqUZUmyaTOoZbgLbx@fanny.db.elephantsql.com/yvlhbcyx';
-
-// create a new pool here using the connection string above
-const pool = new Pool({
-  connectionString: PG_URI,
-});
-
+const db = require('./models/eventModel');
 const res = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/ticketmaster.json')));
 
+// const PG_URI = 'postgres://yvlhbcyx:aV-Cv5uemYSwC0tCqUZUmyaTOoZbgLbx@fanny.db.elephantsql.com/yvlhbcyx';
 
+// // create a new pool here using the connection string above
+// const pool = new Pool({
+//   connectionString: PG_URI,
+// });
 
 async function createTAB() {
 
@@ -31,7 +26,7 @@ async function createTAB() {
     )`
 
     try {
-        await pool.query(createEvents);
+        await db.query(createEvents);
         return;
     }
     catch (err) {
@@ -61,7 +56,7 @@ async function insertDB() {
                 event._embedded.venues[0].city.name,
                 event._embedded.venues[0].state.name, 
             ];
-            await pool.query(insertEvent, queryIDs);
+            await db.query(insertEvent, queryIDs);
         
         }
     }
