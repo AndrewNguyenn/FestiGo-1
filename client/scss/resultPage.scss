@@ -14,6 +14,52 @@ body {
   padding-top:10px;
 }
 
+.result-container {
+  max-width: 80%;
+  max-height: 700px;
+  min-height: 500px;
+  box-shadow: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.eventImageBox {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 6;
+}
+
+.eventTitleBox {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.eventInfoBox {
+  grid-column-start: 4;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.eventDescriptionBox{
+  grid-column-start: 2;
+  grid-column-end: end;
+  grid-row-start: 2;
+  grid-row-end: 4;
+}
+
+.eventLocationBox{
+  grid-column-start: 2;
+  grid-column-end: end;
+  grid-row-start: 4;
+  grid-row-end: end;
+}
+
 .outerBox {
   max-width: 650px;
   margin: 0 auto;

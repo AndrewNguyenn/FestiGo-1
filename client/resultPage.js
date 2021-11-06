@@ -3,7 +3,10 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import ResultMainContainer from './components/ResultMainContainer.jsx'
 // import store from './store';
-import "./scss/styles.scss";
+
+// so webpack can use SCSS
+import styles from './scss/resultPage.scss';
+
 // wrap the App in the Provider Component and pass in the store
 // render(
 //   <React.StrictMode>

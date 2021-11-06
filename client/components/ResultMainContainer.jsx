@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import ResultImageDisplay from './ResultImageDisplay.jsx';
 import ResultTitleDisplay from './ResultTitleDisplay.jsx';
 import ResultEventDisplay from './ResultEventDisplay.jsx';
+import ResultDescriptionDisplay from './ResultDescriptionDisplay.jsx';
 import ResultLocationDisplay from './ResultLocationDisplay.jsx';
 
 
@@ -19,12 +20,13 @@ class ResultMainContainer extends Component {
   render() {
     return(
       <div className="result-container">
-        <div className="outerBox">
+        {/* <div className="outerBox"> */}
           <ResultImageDisplay/>
           <ResultTitleDisplay/>
           <ResultEventDisplay/>
+          <ResultDescriptionDisplay/>
           <ResultLocationDisplay/>
-        </div>
+        {/* </div> */}
       </div>
     );
   }
