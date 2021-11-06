@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 const ResultLocationDisplay = props => {
   <div className="eventLocationBox" id="eventLocation">
     <label htmlFor="eventLocation">Location box here: </label>
+
+    
   </div>
 }
 
