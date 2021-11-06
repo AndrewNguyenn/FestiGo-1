@@ -7,7 +7,7 @@ import {
     Switch
 } from "react-router-dom";
 
-import  NavBar  from './components/NavBar';
+import  NavBar  from './components/NavBar.jsx';
 
 
 // import "./scss/styles.scss";
