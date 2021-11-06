@@ -5,7 +5,9 @@ const PORT = 3000;
 
 app.use(express.static(path.resolve(__dirname, '../client')));
 
-app.get("/submit", )
+app.use("/api", (req, req) => {
+  return 
+})
 
 
 app.use((err, req, res, next) => {

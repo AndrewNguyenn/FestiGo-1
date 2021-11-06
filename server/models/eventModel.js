@@ -1,4 +1,4 @@
-const { Pool, Client } = require('pg');
+const { Pool } = require('pg');
 
 const PG_URI = 'postgres://yvlhbcyx:aV-Cv5uemYSwC0tCqUZUmyaTOoZbgLbx@fanny.db.elephantsql.com/yvlhbcyx';
 
