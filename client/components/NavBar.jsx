@@ -6,15 +6,17 @@ const NavBar = () => {
     <div className="navbar">
       <div className="navbar-left">
         <button className="navbar-button">
-          <i className="fas fa-user-circle"></i>
-        </button>
-        <button className="navbar-button">
-          <i className="fas fa-list-ul"></i>
+          <i className="fas fa-user-circle">Profile</i>
         </button>
       </div>
-      <div className="navbar-right">
+      <div className="navbar-left">
+      <button className="navbar-button">
+          <i className="fas fa-list-ul">Watch List</i>
+        </button>
+      </div>
+      <div className="navbar-left">
         <button className="navbar-button">
-          <i className="fas fa-sign-out-alt"></i>
+          <i className="fas fa-sign-out-alt">Log Out</i>
         </button>
       </div>
     </div>

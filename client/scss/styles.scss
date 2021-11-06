@@ -1,169 +1,99 @@
-body{
-    font-family: monospace;
-}
 
+// fonts 
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+// variables
+$boxShadow: 0px 5px 15px 5px rgba(0,0,0,0.34);;
+$videoBackgroundColor: rgba(9, 28, 38, 0.673);
+
+//lock the scroll bar
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden
+}
+body{
+    font-family: 'Bebas Neue', cursive;
+}
+.wholeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 100px;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+.video{
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+     top: 0;
+    left: 0;
+    z-index: -1;
+}
+.welcomeBack{
+    font-size: 4em;
+    font-weight: bold;
+    color: rgb(228, 207, 207);
+    text-shadow: 0 0 6px #000;
+    margin-bottom: 20px;
+    background-color: $videoBackgroundColor;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: $boxShadow;
+}
+.whenLook{
+    font-size: 1.2em;
+    color: rgb(228, 207, 207);
+    text-shadow: 0 0 10px #000;
+    margin-bottom: 20px;
+    background-color: $videoBackgroundColor;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: $boxShadow;
+}
+.calandarPick {
+    font-size: 1.2em;
+    color: rgb(228, 207, 207);
+    text-shadow: 0 0 10px #000;
+    margin-bottom: 20px;
+    background-color: $videoBackgroundColor;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: $boxShadow;
+}
+.mainContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15em;
+}
+.selectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 .navbar {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(177, 204, 219);
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
     font-size: 30px;
+    
 }
-
-.logo{
-    margin-right: 15em;
-    margin-left: 5em;
-}
-
-.topic-image{
-}
-
-.nav-list{
+.calandarPick {
     display: flex;
-    margin-left: 20px;
-}
-
-.nav-items button {
-    margin: 5px;
-    height: 40px;
-    width: 105px;
-    font-size: 15px;
-    font-family: monospace;
-    background-color: transparent;
-    box-shadow: 3px 1px 3px black;
-}
-
-.nav-items button:hover {
-    background-color:  rgba(232, 210, 171, 0.817);
-    transform: scale(1.1);
-}
-
-
-.topics button {
-    width: 100px;
-    height: 75px;
-    margin: 5px;
-    background-color: transparent;
-    font-size: 15px;
-    font-weight: bold;
-    font-family: monospace;
-    box-shadow: 3px 1px 3px black;
-}
-.topics button:hover {
-    background-color:  rgba(232, 210, 171, 0.817);
-    transform: scale(1.1);
-}
-
-
-.title{
-    font-size: 100px;
-    text-align: center;
-    padding: 70px 0px 30px;
-    background-color: rgb(129, 155, 189);
-}
-
-.sub {
-    font-size: 20px;
-    color: rgb(70, 63, 63);
-}
-
-.userInput{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 20px 0px 20px;
-}
-
-.topicsDisplay{
-    padding-left: 40px;
-    padding-right:40px;
-}
-
-.topicTitle{
-    font-size: 20px;
-}
-.userInput{
-    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    background-color: rgb(255, 178, 36);
-}
+    align-content: center;
 
-label{
-    font-weight: bold;
-    font-size:20px;
-}
-
-input{
-    width: 400px;
-    height: 25px;
-}
-.topics{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:  rgb(222, 203, 203);
-    border: none;
-}
-
-.topics button {
-    width: 100px;
-    height: 75px;
-    margin: 5px;
-    background-color: transparent;
-    font-size: 15px;
-    font-weight: bold;
-    font-family: monospace;
-    box-shadow: 3px 1px 3px black;
-}
-.topics button:hover {
-    background-color:  rgba(232, 210, 171, 0.817)
 }
 
 
-.topic{
-    display: flex;
-    border: solid 3px rgb(129, 155, 189);
-    border-radius: 5px;
-    height: 250px;
-    margin: 10px 0px 10px;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.topic-desc-container:hover{
-    transform: scale(1.1);
-}
-
-
-
-.topic-image{
-    margin-left: 50px;
-    margin-right:20px;
-    //height: 100px;
-}
-.topic-desc-container{
-    width: 50%;
-    height: 60%;
-    margin-right: 20px;
-    padding-bottom: 40px;
-}
-.topicName{
-    font-size: 35px;
-    padding-bottom:10px;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-    color:rgb(10, 77, 165);
-
-}
-.topic-desc{
-    margin-top: 10px;
-}
-.topicName:hover{
-    color:black;
-}
-
-
-button {
-    cursor: pointer;
-}
