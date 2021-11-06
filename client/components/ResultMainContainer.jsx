@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { render } from 'react-dom';
-import ResultImageDisplay from './ResultImageDisplay';
-import ResultTitleDisplay from './ResultTitleDisplay';
-import ResultEventDisplay from './ResultEventDisplay';
-import ResultLocationDisplay from './ResultLocationDisplay';
+import ResultImageDisplay from './ResultImageDisplay.jsx';
+import ResultTitleDisplay from './ResultTitleDisplay.jsx';
+import ResultEventDisplay from './ResultEventDisplay.jsx';
+import ResultLocationDisplay from './ResultLocationDisplay.jsx';
 
 
-const mapStateToProps = state => ({
-  // add pertinent state here
-});
 
 class ResultMainContainer extends Component {
   constructor(props) {
     super(props);
   }
-
+  
+  // mapStateToProps = state => ({
+  //   // add pertinent state here
+  // });
   render() {
     return(
       <div className="result-container">
         <div className="outerBox">
-          <h1 id="header">Result #1</h1>
           <ResultImageDisplay/>
           <ResultTitleDisplay/>
           <ResultEventDisplay/>
@@ -32,4 +31,5 @@ class ResultMainContainer extends Component {
 
 }
 
-export default connect(mapStateToProps, null)(ResultMainContainer);
+export default ResultMainContainer;
+// export default connect(mapStateToProps, null)(ResultMainContainer);

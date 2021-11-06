@@ -1,12 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
-import ResultMainContainer from './ResultMainContainer';
+import ResultMainContainer from './ResultMainContainer.jsx';
 import { connect } from 'react-redux';
 
-const ResultLocationDisplay = props => {
+const ResultLocationDisplay = props => (
   <div className="eventLocationBox" id="eventLocation">
     <label htmlFor="eventLocation">Location box here: </label>
   </div>
-}
+)
 
-export default connect(mapStateToProps, null)(ResultLocationDisplay);
+// export default connect(mapStateToProps, null)(ResultLocationDisplay);
+export default ResultLocationDisplay;
