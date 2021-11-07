@@ -32,8 +32,8 @@ async function createTAB() {
 
 async function insertDB(twentyEvents) {
 
-    const insertEvent = `INSERT INTO events (name, start_date, start_time, venue, city, state, url, event_id) 
-                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8) ON CONFLICT DO NOTHING`;
+    const insertEvent = `INSERT INTO events (name, start_date, start_time, venue, city, state, event_id, image_url, tm_url, max_price, min_price, currency) 
+                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) ON CONFLICT DO NOTHING`;
     // const insertEvent = `INSERT INTO events (name, start_date, start_time, venue, city, state, url, event_id) 
     //                     SELECT $1, $2, $3, $4, $5, $6, $7, $8
     //                     WHERE
@@ -53,8 +53,12 @@ async function insertDB(twentyEvents) {
                 event._embedded.venues[0].name,
                 event._embedded.venues[0].city.name,
                 event._embedded.venues[0].state.name,
-                eventImageLink,
                 event.id,
+                eventImageLink,
+                event.url,
+                event.priceRanges[0].min,
+                event.priceRanges[0].max,
+                event.priceRanges[0].currency,
             ];
             console.log(queryIDs)
             console.log("00000    " + i + "    00000");
@@ -115,7 +119,7 @@ async function dataRequest() {
 
 // adding column to Event, alter it if you need extra constraint
 async function addColumn(newColName, dataType, constraint = "") {
-    if (typeof newColName != 'string' || typeof DataType != 'string') {
+    if (typeof newColName !== 'string' || typeof dataType !== 'string') {
         console.log("Please put both input as type: String")
     }
     try {
@@ -158,7 +162,8 @@ async function wipeTable(tableName) {
 // insertDB();
 // createTAB();
 // getData(url);
-// deleteColumn('eventId')
+// deleteColumn('info')
 // wipeTable('events')
-// addColumn('event_Id', 'VARCHAR(40)', 'PRIMARY KEY')
-// dataRequest();
+// addColumn("currency", "VARCHAR(16)")
+// addColumn("max_price", "INT")
+dataRequest();
