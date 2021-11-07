@@ -29,16 +29,19 @@ async function createTAB() {
 }
 
 
-const insertEvent = `INSERT INTO events (name, start_date, start_time, venue, city, state) 
-VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT DO NOTHING`;
 
 async function insertDB(twentyEvents) {
 
+    // const insertEvent = `INSERT INTO events (name, start_date, start_time, venue, city, state, url, event_id) 
+    //                     VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT DO NOTHING`;
+    const insertEvent = `INSERT INTO events (name, start_date, start_time, venue, city, state, url, event_id) 
+                        VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT DO NOTHING`;
     console.log('We have entered insertDB');
     console.log(twentyEvents);
     try {
         for (let i = 0; i < twentyEvents.length; i++) {
             let event = twentyEvents[i];
+            const eventImageLink = findBestPic(event.images)
 
             const queryIDs = [
                 event.name,
@@ -47,7 +50,7 @@ async function insertDB(twentyEvents) {
                 event._embedded.venues[0].name,
                 event._embedded.venues[0].city.name,
                 event._embedded.venues[0].state.name,
-
+                eventImageLink,
                 event.id,
             ];
             console.log("00000    " + i + "    00000");
@@ -59,19 +62,34 @@ async function insertDB(twentyEvents) {
     }
 }
 
-// async function findBestPic(imageObj) {
-//     maxSeen = -Infinity;
-//     maxLink = ""
-//     for (let i = 0; i < imageObj.length; i++) {
-//         currImg = imageObj[0]
-//     }
-// }
+async function findBestPic(imageArr) {
+    let maxSeen = -Infinity;
+    let maxLink = ""
+    if (!imageArr.length) {
+        console.log("empty image array")
+        return
+    }
+    for (let i = 0; i < imageArr.length; i++) {
+        let currImg = imageArr[i]
+        if (currImg['ratio'] == "3_2") {
+            if (currImg['width'] > maxSeen) {
+                maxSeen = currImg['width']
+                maxLink = currImg['url']
+            }
+        }
+    }
+    if (maxLink === "") {
+        console.log("couldn't find img url")
+        return
+    }
+    return maxLink
+}
 
 
-let apiUrlFirstPart = 'https://app.ticketmaster.com/discovery/v2/events?apikey=zQLojc5AWQltobDlNL7L7uL5r3QmhjUG&source=ticketmaster&locale=*&startDateTime=2021-11-08T19:46:00Z&page=';
-let apiUrlEnd = '&countryCode=US&segmentName=Music';
 
 async function dataRequest() {
+    let apiUrlFirstPart = 'https://app.ticketmaster.com/discovery/v2/events?apikey=zQLojc5AWQltobDlNL7L7uL5r3QmhjUG&source=ticketmaster&locale=*&startDateTime=2021-11-08T19:46:00Z&page=';
+    let apiUrlEnd = '&countryCode=US&segmentName=Music';
     let tmpData = "";
 
     for (let page = 1; page < 3; page++) {
@@ -135,8 +153,7 @@ async function wipeTable(tableName) {
 // insertDB();
 // createTAB();
 // getData(url);
-// deleteColumn('id')
-//wipeTable('events')
-addColumn('eventId', 'VARCHAR(40)', 'PRIMARY KEY')
-//dataRequest();
-
+// deleteColumn('eventId')
+// wipeTable('events')
+// addColumn('event_Id', 'VARCHAR(40)', 'PRIMARY KEY')
+// dataRequest();
