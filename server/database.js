@@ -69,12 +69,14 @@ async function insertDB() {
 // insertDB();
 
 let apiUrlFirstPart = 'https://app.ticketmaster.com/discovery/v2/events?apikey=zQLojc5AWQltobDlNL7L7uL5r3QmhjUG&source=ticketmaster&locale=*&startDateTime=2021-11-08T19:46:00Z&page=';
-let page = 2;
 let apiUrlEnd = '&countryCode=US&segmentName=Music';
 
 async function dataRequest() {
+    
+    let page = 2;
     let tmpData = "wtf";
     let wholeUrl = apiUrlFirstPart + page.toString() + apiUrlEnd;
+    
     try {
         tmpData = await axios(wholeUrl);
         console.log(tmpData.data._embedded.events);
