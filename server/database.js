@@ -3,6 +3,7 @@ const path = require('path');
 const { Pool } = require('pg');
 const db = require('./models/eventModel');
 const res = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/ticketmaster.json')));
+const axios = require('axios');
 
 // const PG_URI = 'postgres://yvlhbcyx:aV-Cv5uemYSwC0tCqUZUmyaTOoZbgLbx@fanny.db.elephantsql.com/yvlhbcyx';
 
@@ -65,5 +66,24 @@ async function insertDB() {
     }
 }
 
-insertDB();
+// insertDB();
+
+let apiUrlFirstPart = 'https://app.ticketmaster.com/discovery/v2/events?apikey=zQLojc5AWQltobDlNL7L7uL5r3QmhjUG&source=ticketmaster&locale=*&startDateTime=2021-11-08T19:46:00Z&page=';
+let page = 2;
+let apiUrlEnd = '&countryCode=US&segmentName=Music';
+
+async function dataRequest() {
+    let tmpData = "wtf";
+    let wholeUrl = apiUrlFirstPart + page.toString() + apiUrlEnd;
+    try {
+        tmpData = await axios(wholeUrl);
+        console.log(tmpData.data._embedded.events);
+    }
+    catch (err) {
+       console.log("erroring!") 
+    }
+    console.log("123123");
+    console.log(tmpData.data.__embedded.events);
+}
+dataRequest();
 
