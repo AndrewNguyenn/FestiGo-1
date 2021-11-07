@@ -32,16 +32,19 @@ async function createTAB() {
 
 async function insertDB(twentyEvents) {
 
-    // const insertEvent = `INSERT INTO events (name, start_date, start_time, venue, city, state, url, event_id) 
-    //                     VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT DO NOTHING`;
     const insertEvent = `INSERT INTO events (name, start_date, start_time, venue, city, state, url, event_id) 
-                        VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT DO NOTHING`;
+                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8) ON CONFLICT DO NOTHING`;
+    // const insertEvent = `INSERT INTO events (name, start_date, start_time, venue, city, state, url, event_id) 
+    //                     SELECT $1, $2, $3, $4, $5, $6, $7, $8
+    //                     WHERE
+    //                         NOT EXISTS (
+    //                             SELECT event_id FROM events WHERE event_id = $8
+    //                         );`;
     console.log('We have entered insertDB');
-    console.log(twentyEvents);
     try {
         for (let i = 0; i < twentyEvents.length; i++) {
             let event = twentyEvents[i];
-            const eventImageLink = findBestPic(event.images)
+            const eventImageLink = await findBestPic(event.images)
 
             const queryIDs = [
                 event.name,
@@ -53,6 +56,7 @@ async function insertDB(twentyEvents) {
                 eventImageLink,
                 event.id,
             ];
+            console.log(queryIDs)
             console.log("00000    " + i + "    00000");
             await db.query(insertEvent, queryIDs);
         }
@@ -92,17 +96,19 @@ async function dataRequest() {
     let apiUrlEnd = '&countryCode=US&segmentName=Music';
     let tmpData = "";
 
-    for (let page = 1; page < 3; page++) {
+    for (let page = 1; page < 701; page++) {
         let wholeUrl = apiUrlFirstPart + page.toString() + apiUrlEnd;
 
         try {
             tmpData = await axios(wholeUrl);
             console.log(tmpData)
             console.log("----    " + page + "    ----------------");
-            // await insertDB(tmpData.data._embedded.events);
+            await insertDB(tmpData.data._embedded.events);
         }
         catch (err) {
             console.log("erroring!")
+            console.log(`Check the ticketmaster API at page equal ${page}`);
+            break;
         }
     }
 }
@@ -144,7 +150,6 @@ async function wipeTable(tableName) {
         let query = `DELETE FROM ` + tableName +
             ` WHERE start_date IS NOT NULL`;
         await db.query(query);
-        console.log(`completed`)
     } catch (err) {
         console.log(`Error while whiping out table ${err}.`)
     }
