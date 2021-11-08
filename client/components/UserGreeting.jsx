@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import regeneratorRuntime from "regenerator-runtime"
 import Feedback from "./Feedback.jsx";
+import ResultsDisplay from './ResultsDisplay.jsx';
 
 const UserGreeting = (props) => {
   const { user } = props;
@@ -200,6 +201,7 @@ const UserGreeting = (props) => {
 
     return (
     <div>
+     <ResultsDisplay props={result}/>
       <h1 className='welcomeBack'>Welcome back {user}</h1>
       <h5 className='whenLook'>When do you want to go?</h5>
       <div className="calandarPick">

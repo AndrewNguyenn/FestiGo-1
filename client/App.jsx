@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import  UserGreeting from './components/UserGreeting.jsx';
 import Login from './components/Login.jsx';
+import ResultsDisplay from './components/ResultsDisplay.jsx';
 
 import "./scss/styles.scss";
 
@@ -36,8 +37,9 @@ const App = (props) => {
   					{getData ? <Redirect to="/change" /> : <UserGreeting />}
 					</Route>
 
-					<Route exact path = "/change"		
-				component = {Login} />
+				<Route exact path = "/change"		
+				component = {ResultsDisplay} />
+
 					{/* <Route exact path = "/"		
 					component = {UserGreeting} /> */}
 				</Switch>	

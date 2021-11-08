@@ -2,7 +2,7 @@
   "name": "scratch_project",
   "version": "1.0.0",
   "description": "\"Developer's information library\"",
-  "main": "index.js",
+  "main": "resultPage.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
@@ -24,10 +24,11 @@
     "react-dom": "^17.0.2",
     "react-google-login": "^5.2.2",
     "react-hot-loader": "^4.13.0",
+    "react-redux": "^7.2.6",
     "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "^4.0.3",
-    "regenerator-runtime": "^0.13.9"
+    "redux": "^4.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
