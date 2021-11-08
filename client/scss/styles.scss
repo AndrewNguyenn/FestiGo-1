@@ -163,29 +163,36 @@ greeting{
   }
   
   .eventImage {
+    color: rgba(222, 213, 237, 0.783);
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.488);
+    background-color: $videoBackgroundColor;
 
   }
   
   #eventTitle {
+    color: rgba(222, 213, 237, 0.783);
+
     font-weight: bolder;
-    background-color: rgba(255, 255, 255, 0.488);
+    background-color: $videoBackgroundColor;
   }
   
   #eventInfo {
+    color: rgba(222, 213, 237, 0.783);
+
     font-weight: bolder;
-    background-color: rgba(255, 255, 255, 0.488);
+    background-color: $videoBackgroundColor;
   }
   
   .innerbox {
+    color: rgba(222, 213, 237, 0.783);
+
     padding: 10px;
     width: 95%;
     height: 95%;
     // margin: 15px auto;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, .2);
-    background-color: rgba(255, 255, 255, 0.488);
+    background-color: $videoBackgroundColor;
   }
   
   // .displayContainer {
@@ -195,45 +202,55 @@ greeting{
   // }
   
   .eventImageBox {
+    color: rgba(222, 213, 237, 0.783);
+
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: end;
   
     padding-top: 6px;
-    background-color: rgba(255, 255, 255, 0.488);
+    background-color: $videoBackgroundColor;
   }
   
   .eventTitleBox {
+    color: rgba(222, 213, 237, 0.783);
+
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
-    background-color: rgba(255, 255, 255, 0.488);
+    background-color: $videoBackgroundColor;
   }
   
   .eventInfoBox {
+    color: rgba(222, 213, 237, 0.783);
+
     grid-column-start: 4;
     grid-column-end: 6;
     grid-row-start: 1;
     grid-row-end: 2;
-    background-color: rgba(255, 255, 255, 0.488);
+    background-color: $videoBackgroundColor;
   }
   
   .eventDescriptionBox{
+    color: rgba(222, 213, 237, 0.783);
+
     grid-column-start: 2;
     grid-column-end: end;
     grid-row-start: 2;
     grid-row-end: 3;
-    background-color: rgba(255, 255, 255, 0.488);
+    background-color: $videoBackgroundColor;
   }
   
   .eventLocationBox{
+    color: rgba(222, 213, 237, 0.783);
+
     grid-column-start: 2;
     grid-column-end: end;
     grid-row-start: 3;
     grid-row-end: end;
-    background-color: rgba(255, 255, 255, 0.488);
+    background-color: $videoBackgroundColor;
   }
   
   
