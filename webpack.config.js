@@ -3,7 +3,9 @@ const path = require("path");
 
 module.exports = {
     mode: 'development',
-    entry: './client/index.js',
+    // change for michael temporarily
+    entry: './client/resultPage.js',
+    // entry: './client/index.js',
     output: {
         path: path.resolve(__dirname, 'build'),
         publicPath: '/',
@@ -11,8 +13,10 @@ module.exports = {
     },
     devtool: 'eval-source-map',
     plugins: [
+    // change for michael temporarily
       new HtmlWebpackPlugin({
-        template: './client/index.html'
+        template: './client/resultPage.html'
+        // template: './client/index.html'
       })
     ],
     module: {
