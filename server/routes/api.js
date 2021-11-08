@@ -1,5 +1,6 @@
 const express = require('express')
 const eventsController = require('../controllers/eventsController.js');
+const app = require('../server.js');
 const router = express.Router()
 
 router.get('/', (req, res) => {
@@ -9,7 +10,7 @@ router.get('/', (req, res) => {
 router.get('/mostArea',
     eventsController.getMostArea,
     (req, res) => {
-        res.status(200).json([...res.locals.mostAreaInfo])
+        res.status(200).json({ ...res.locals.mostArea })
     }
 );
 
@@ -22,13 +23,16 @@ router.get('/country',
 
 router.get('/state',
     eventsController.getStates,
-    (req, res) => res.status(200).json(res.locals.states)
+    (req, res) => {
+        console.log(...res.locals.states);
+        res.status(200).json(res.locals.states)
+    }
 );
 
-router.get('/searchResult',
+router.get('/searchRes',
     eventsController.getSearch,
     (req, res) => {
-        res.status(200).json({})
+        res.status(200).json(res.locals.searchData)
     }
 );
 

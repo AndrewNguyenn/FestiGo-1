@@ -167,15 +167,16 @@ async function wipeTable(tableName) {
 }
 
 
-// let test = "2022-02-14";
+// let test = "2021-12-14";
 // let test1 = test.split("-")
+// console.log(test1[0], test1[1], test1[2])
 // console.log(tool.getDays(test1[0], test1[1], test1[2]))
 
 // insertDB();
 // createTAB();
 // getData(url);
 // deleteColumn('min_price')
-// wipeTable('events')
+//wipeTable('events')
 // addColumn("dateDays", "INT")
 // addColumn("min_price", "DECIMAL(10, 2)")
 // addColumn("country", "VARCHAR(40)")
