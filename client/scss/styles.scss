@@ -97,3 +97,15 @@ body{
 }
 
 
+//login page
+greeting{
+    font-size: 4em;
+    font-weight: bold;
+    color: rgb(223, 215, 215);
+    text-shadow: 0 0 6px #000;
+    margin-bottom: 100px;
+    background-color: $videoBackgroundColor;
+    padding: 10% 25%;
+    border-radius: 10px;
+    box-shadow: $boxShadow;
+}
