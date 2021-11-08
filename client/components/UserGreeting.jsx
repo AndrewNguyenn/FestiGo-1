@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import regeneratorRuntime from "regenerator-runtime"
 import Feedback from "./Feedback.jsx";
+import ResultsDisplay from './ResultsDisplay.jsx';
 
 const UserGreeting = (props) => {
   const { user } = props;
@@ -178,6 +179,7 @@ const UserGreeting = (props) => {
   // };
     return (
     <div>
+     <ResultsDisplay props={result}/>
       <h1 className='welcomeBack'>Welcome back {user}</h1>
       <h5 className='whenLook'>When do you want to go?</h5>
       <div className="calandarPick">
@@ -199,6 +201,7 @@ const UserGreeting = (props) => {
 		  	</input>
       </div>
       <h5 className= 'whenLook'> <Feedback feedback={feedback}/> </h5>
+
       <iframe className='video' frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="534" height="300" type="text/html" src="https://www.youtube.com/embed/nNe4RUHpLWI?autoplay=1&mute=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=223&end=0&origin=http://youtubeembedcode.com">
 			</iframe>
     </div>

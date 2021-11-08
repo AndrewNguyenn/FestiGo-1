@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { render } from 'react-dom';
 import ResultMainContainer from './ResultMainContainer.jsx';
 
-const displayResults = [
-
+const testResults = [
     {
         name: 'Steel Panther - Heavy Metal Rules Tour',
         start_date: '2023-08-30',
@@ -41,26 +40,18 @@ const displayResults = [
         country: 'United States Of America',
         datedays: 8643
     },
-
-
-    // {
-    //     img : "url",
-    //     title: "Event title",
-    //     eventInfo: "Event information here",
-    //     eventDescription: "Detailed description here",
-    //     eventLocation: "Event location here"
-    // }
 ]
 
 const ResultsDisplay = props => {
 
-const results = displayResults.map((event, idx) => {
-    return <ResultMainContainer eventObj ={event} key ={idx}/>
-});
+  const {results} = props;
+  const resultsToDisplay = results.map((event, idx) => {
+      return <ResultMainContainer eventObj ={event} key ={idx}/>
+  });
     return(
         <div class="landingPage">
             <div class="displayPage">
-          {results}
+              {resultsToDisplay}
             </div>
         </div>
     );

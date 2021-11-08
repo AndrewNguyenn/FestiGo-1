@@ -4,8 +4,8 @@ const path = require("path");
 module.exports = {
     mode: 'development',
     // change for michael temporarily
-    entry: './client/resultPage.js',
-    // entry: './client/index.js',
+    // entry: './client/resultPage.js',
+    entry: './client/index.js',
     output: {
         path: path.resolve(__dirname, 'build'),
         publicPath: '/',
@@ -15,8 +15,8 @@ module.exports = {
     plugins: [
     // change for michael temporarily
       new HtmlWebpackPlugin({
-        template: './client/resultPage.html'
-        // template: './client/index.html'
+        // template: './client/resultPage.html'
+        template: './client/index.html'
       })
     ],
     module: {

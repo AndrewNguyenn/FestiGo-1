@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import  UserGreeting from './components/UserGreeting.jsx';
 import Login from './components/Login.jsx';
+import ResultsDisplay from './components/ResultsDisplay.jsx';
 
 import "./scss/styles.scss";
 
@@ -37,7 +38,7 @@ const App = (props) => {
 				</Route>
 
 				<Route exact path = "/change"		
-				component = {Login} />
+				component = {ResultsDisplay} />
 
 					{/* <Route exact path = "/"		
 					component = {UserGreeting} /> */}
