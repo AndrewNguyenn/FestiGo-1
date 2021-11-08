@@ -6,8 +6,11 @@ const PORT = 3000;
 const apiRouter = require('./routes/api');
 
 app.use(express.static(path.resolve(__dirname, '../client')));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
 
 app.use("/api", apiRouter);
+
 
 
 app.use((err, req, res, next) => {
