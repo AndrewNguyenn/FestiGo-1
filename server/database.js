@@ -2,8 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const { Pool } = require('pg');
 const db = require('./models/eventModel');
-const res = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/ticketmaster.json')));
+// const res = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/ticketmaster.json')));
 const axios = require('axios');
+const { get } = require('http');
+const tool = require('./tool.js');
 
 async function createTAB() {
 
@@ -32,8 +34,8 @@ async function createTAB() {
 
 async function insertDB(twentyEvents) {
 
-    const insertEvent = `INSERT INTO events (name, start_date, start_time, venue, city, state, event_id, image_url, tm_url, max_price, min_price, currency) 
-                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) ON CONFLICT DO NOTHING`;
+    const insertEvent = `INSERT INTO events (name, start_date, start_time, venue, city, state, event_id, image_url, tm_url, max_price, min_price, currency, country, datedays) 
+                        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) ON CONFLICT DO NOTHING`;
     // const insertEvent = `INSERT INTO events (name, start_date, start_time, venue, city, state, url, event_id) 
     //                     SELECT $1, $2, $3, $4, $5, $6, $7, $8
     //                     WHERE
@@ -45,6 +47,8 @@ async function insertDB(twentyEvents) {
         for (let i = 0; i < twentyEvents.length; i++) {
             let event = twentyEvents[i];
             const eventImageLink = await findBestPic(event.images)
+            const dateArr = event.dates.start.localDate.split("-");
+            const eventDate = tool.getDays(dateArr[0], dateArr[1], dateArr[2]);
 
             const queryIDs = [
                 event.name,
@@ -59,6 +63,8 @@ async function insertDB(twentyEvents) {
                 event.priceRanges[0].min,
                 event.priceRanges[0].max,
                 event.priceRanges[0].currency,
+                event._embedded.venues[0].country.name,
+                eventDate,
             ];
             console.log(queryIDs)
             console.log("00000    " + i + "    00000");
@@ -105,7 +111,7 @@ async function dataRequest() {
 
         try {
             tmpData = await axios(wholeUrl);
-            console.log(tmpData)
+            // console.log(tmpData)
             console.log("----    " + page + "    ----------------");
             await insertDB(tmpData.data._embedded.events);
         }
@@ -116,6 +122,7 @@ async function dataRequest() {
         }
     }
 }
+
 
 // adding column to Event, alter it if you need extra constraint
 async function addColumn(newColName, dataType, constraint = "") {
@@ -159,11 +166,17 @@ async function wipeTable(tableName) {
     }
 }
 
+
+// let test = "2022-02-14";
+// let test1 = test.split("-")
+// console.log(tool.getDays(test1[0], test1[1], test1[2]))
+
 // insertDB();
 // createTAB();
 // getData(url);
-// deleteColumn('info')
+// deleteColumn('min_price')
 // wipeTable('events')
-// addColumn("currency", "VARCHAR(16)")
-// addColumn("max_price", "INT")
-dataRequest();
+// addColumn("dateDays", "INT")
+// addColumn("min_price", "DECIMAL(10, 2)")
+// addColumn("country", "VARCHAR(40)")
+// dataRequest();
