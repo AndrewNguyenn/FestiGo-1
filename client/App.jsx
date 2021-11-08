@@ -11,6 +11,7 @@ import  NavBar  from './components/NavBar.jsx';
 import Login from './components/Login.jsx';
 
 import "./scss/styles.scss";
+import  NavBar  from './components/NavBar.jsx';
 
 const App = (props) => {
     const [user, setUser] = React.useState(null);
