@@ -12,197 +12,16 @@ import regeneratorRuntime from "regenerator-runtime"
 import Feedback from "./Feedback.jsx";
 import ResultsDisplay from './ResultsDisplay.jsx';
 
+
 const UserGreeting = (props) => {
-  const { user } = props;
-  const [ feedback, feedUpdate ] = useState("");
-  const [ startDate, setStartDate ] = useState('');
-  const [ endDate, setEndDate ] = useState('');
-  //handle the calander when the date is chosen it will sent a post request to the server
-  //and the server will handle the req body and redirect to the events page
-  let result;
-  let infoRes;
-  let selectedCountry = "";
-  let selectedState = "";
-  let countryArr = [];
-  let stateArr = [];
-
-  const sCalHandler = (e) => {
-    console.log("00");
-    let tmpArr = [];
-    let sDateArr = e.target.value.split("-");
-    tmpArr.push(sDateArr)
-    tmpArr.push(tool.getDays(sDateArr[0], sDateArr[1], sDateArr[2]));
-    console.log(tmpArr)
-    // setStartDate (current => [...current, tmpArr]);
-    // React.useEffect(() => {
-      setStartDate(tmpArr)
-    // }, [tmpArr])
-    console.log("%%%%%%%%%%")
-    console.log(startDate)
-    validateDate();
-  }
-
-  const eCalHandler = (e) => {
-    console.log("11")
-    let tmpArr = []
-    let eDateArr = e.target.value.split("-");
-    tmpArr.push(eDateArr);
-    tmpArr.push(tool.getDays(eDateArr[0], eDateArr[1], eDateArr[2]));
-    console.log(tmpArr)
-    setEndDate(tmpArr)
-    console.log("%%%%%%")
-    console.log(endDate)
-    validateDate();
-  }
-  const countryHandler = (e) => {
-    // after country dropdown
-  }
-  const stateHandler = (e) => {
-    // after state dropdown
-  }
-
-  const validateDate = async() => {
-    console.log("-------------")
-    console.log(startDate, endDate)
-    console.log(!endDate.length)
-    console.log("-------------")
-    if (!startDate.length) {
-      feedUpdate("please choose start date")
-    } else if (!endDate.length) {
-      feedUpdate("please chose end date")
-    } else if (startDate[1] <= endDate[1]) {
-      console.log("this is valid date");
-      // await getCountry(startDate[0], endDate[0]);
-      // await getSearch(startDate[0], endDate[0]);
-      await getInfo(startDate[0], endDate[0], selectedCountry, selectedState);
-      console.log("99999999999")
-      console.log(infoRes)
-    } else {
-      console.log("invalid date")
-      // feedback user to reselect the date and refresh the calendar?
-    }
-    console.log(feedback)
-  }
-  const processInfo = (infos) => {
-    console.log('in processInfo, ', infos)
-    let tmpArr = [];
-    let infoStr = `Top nation    --    < ${infos[0][0].country}:   ${infos[0][0].cc} events > . . .
-                    Top city    --   < ${infos[2][0].city}:   ${infos[2][0].cc} events >`
-                    feedUpdate(infoStr)
-  }
-  const getSearch = (sDateArr, eDateArr, country = "", state = "") => {
-    const body = {
-      startYear: sDateArr[0],
-      startMonth: sDateArr[1],
-      startDay: sDateArr[2],
-      endYear: eDateArr[0],
-      endMonth: eDateArr[1],
-      endDay: eDateArr[2],
-      country: "",
-      state: "",
-    }
-    console.log('in get searchResult', body)
-    fetch("/api/searchRes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    })
-    .then (res => {
-      console.log("444444")
-      // console.log(res.json())
-      console.log(res)
-      return res.json();
-    })
-    .then (data => {
-      result = data;
-      console.log('RESULT', result)
-      // console.log('handle calendar', data)
-      // const countryData = data;
-      // console.log("444444")
-      // console.log(countryData)
-      // feedback = toString(countryData)
-    })
-    .catch (err => console.log('UserGreeting fetch /api/country: ERROR: ', err))
-  };
-
-  const getInfo = (sDateArr, eDateArr, country = "", state = "") => {
-    const body = {
-      startYear: sDateArr[0],
-      startMonth: sDateArr[1],
-      startDay: sDateArr[2],
-      endYear: eDateArr[0],
-      endMonth: eDateArr[1],
-      endDay: eDateArr[2],
-      country: "",
-      state: "",
-    }
-    fetch("/api/mostArea", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    })
-    .then (res => {
-      console.log("444444")
-      return res.json();
-    })
-    .then (data => {
-      console.log('RESULT', data)
-      infoRes = data;
-      console.log('999');
-      // console.log(infoRes);
-      processInfo(infoRes)
-    })
-    .catch (err => console.log('UserGreeting fetch /api/country: ERROR: ', err))
-  };
-
-  // const getCountry = (sDateArr, eDateArr, country = "", state = "") => {
-  //   const body = {
-  //     startYear: sDateArr[0],
-  //     startMonth: sDateArr[1],
-  //     startDay: sDateArr[2],
-  //     endYear: eDateArr[0],
-  //     endMonth: eDateArr[1],
-  //     endDay: eDateArr[2],
-  //     country: "",
-  //     state: "",
-  //   }
-  //   console.log('in get Country', body)
-  //   fetch("/api/country", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(body),
-  //   })
-  //   .then (res => {
-  //     console.log("444444")
-  //     // console.log(res.json())
-  //     console.log(res)
-  //     return res.json();
-  //   })
-  //   .then (data => {
-  //     result = data;
-  //     console.log('RESULT', result)
-  //     // console.log('handle calendar', data)
-  //     // const countryData = data;
-  //     // console.log("444444")
-  //     // console.log(countryData)
-  //     // feedback = toString(countryData)
-  //   })
-  //   .catch (err => console.log('UserGreeting fetch /api/country: ERROR: ', err))
-  //     console.log("777777")
-  // };
+  const { sCalHandler, eCalHandler, feedback, handleClick } = props;
  
-
+  
 
     return (
     <div>
-     <ResultsDisplay props={result}/>
-      <h1 className='welcomeBack'>Welcome back {user}</h1>
+     {/* <ResultsDisplay results={result}/> */}
+      <h1 className='welcomeBack'>Welcome to FestiGo</h1>
       <h5 className='whenLook'>When do you want to go?</h5>
       <div className="calandarPick">
         <label for="start">Start: </label>
@@ -221,9 +40,10 @@ const UserGreeting = (props) => {
       		min="2020-01-01" 
 		  		max="2022-12-31">
 		  	</input>
+        <button className='button' onClick={handleClick}>Submit</button>
       </div>
       <h5 className= 'whenLook'> <Feedback feedback={feedback}/> </h5>
-      <iframe className='video' frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="534" height="300" type="text/html" src="https://www.youtube.com/embed/nNe4RUHpLWI?autoplay=1&mute=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=300&end=0&origin=http://youtubeembedcode.com">
+      <iframe className='video' frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="534" height="300" type="text/html" src="https://www.youtube.com/embed/nNe4RUHpLWI?autoplay=1&mute=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=400&end=0&origin=http://youtubeembedcode.com">
 			</iframe>
     </div>
   )

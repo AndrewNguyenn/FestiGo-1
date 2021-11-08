@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { render } from 'react-dom';
 import ResultMainContainer from './ResultMainContainer.jsx';
+import App from '../App.jsx'
 
 const testResults = [
     {

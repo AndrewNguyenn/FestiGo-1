@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { render } from 'react-dom';
 // import ResultImageDisplay from './ResultImageDisplay.jsx';
 // //import ResultTitleDisplay from './ResultTitleDisplay.jsx';
