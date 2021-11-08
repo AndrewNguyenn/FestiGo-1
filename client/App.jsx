@@ -32,13 +32,12 @@ const App = (props) => {
       <div className="mainContainer">
 				<div className="selectionContainer">
 				<Switch>
-				<Route exact path="/">
-  				{getData ? <Redirect to="/change" /> : <UserGreeting />}
-				</Route>
+					<Route exact path="/">
+  					{getData ? <Redirect to="/change" /> : <UserGreeting />}
+					</Route>
 
-				<Route exact path = "/change"		
+					<Route exact path = "/change"		
 				component = {Login} />
-
 					{/* <Route exact path = "/"		
 					component = {UserGreeting} /> */}
 				</Switch>	
