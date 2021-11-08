@@ -1,13 +1,14 @@
 import React, { Component, useState, useEffect } from 'react'
 import {
-    BrowserRouter as Router,
-    Link,
-    Route,
-    useParams,
-    Switch
+  BrowserRouter as Router,
+  Link,
+  Route,
+  useParams,
+  Switch,
+	Redirect
 } from "react-router-dom";
 import  UserGreeting from './components/UserGreeting.jsx';
-
+import Login from './components/Login.jsx';
 
 import "./scss/styles.scss";
 
@@ -23,19 +24,27 @@ const App = (props) => {
 				});
 		}, []);
 		
+	let getData = false;
+
     return (
 		<Router>
 			<div className="wholeContainer">
       <div className="mainContainer">
 				<div className="selectionContainer">
 				<Switch>
-					<Route exact path = "/"		
-					component = {UserGreeting} />
+				<Route exact path="/">
+  				{getData ? <Redirect to="/change" /> : <UserGreeting />}
+				</Route>
+
+				<Route exact path = "/change"		
+				component = {Login} />
+
+					{/* <Route exact path = "/"		
+					component = {UserGreeting} /> */}
 				</Switch>	
 				</div>
       </div>
-			{/* <iframe className='video' frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="534" height="300" type="text/html" src="https://www.youtube.com/embed/nNe4RUHpLWI?autoplay=1&mute=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=300&end=0&origin=http://youtubeembedcode.com">
-			</iframe> */}
+			
 			</div>
 			</Router>
     );
