@@ -7,21 +7,21 @@ router.get('/', (req, res) => {
     res.status(200);
 })
 
-router.get('/mostArea',
+router.post('/mostArea',
     eventsController.getMostArea,
     (req, res) => {
         res.status(200).json({ ...res.locals.mostArea })
     }
 );
 
-router.get('/country',
+router.post('/country',
     eventsController.getCountries,
     (req, res) => {
         res.status(200).json(res.locals.countries)
     }
 );
 
-router.get('/state',
+router.post('/state',
     eventsController.getStates,
     (req, res) => {
         console.log(...res.locals.states);
@@ -29,7 +29,7 @@ router.get('/state',
     }
 );
 
-router.get('/searchRes',
+router.post('/searchRes',
     eventsController.getSearch,
     (req, res) => {
         res.status(200).json(res.locals.searchData)

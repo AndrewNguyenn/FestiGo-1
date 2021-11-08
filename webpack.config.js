@@ -32,7 +32,18 @@ module.exports = {
              {
                 test: /\.(png|jpe?g|gif)$/i,
                 loader: "file-loader"
-             }
+             },
+             {
+                test: /\.(mov|mp4)$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                      name: 'festival.mp4'
+                    }  
+                  }
+                ]
+              },
         ]
     },
     devServer: {
@@ -41,5 +52,11 @@ module.exports = {
             directory: path.resolve(__dirname, 'build'),
         },
         historyApiFallback: true,
+        proxy: {
+          '/api':{
+            target: 'http://localhost:3000/',
+            secure: false,
+          }
+        }
     },
 };
