@@ -38,37 +38,54 @@ body {
 .result-container {
   min-width: 50%;
   // max-width: 80%;
-  min-height: 30%;
-  // min-height: 500px;
+  // min-height: 30%;
+  min-height: 300px;
   box-shadow: 10px;
 
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  
+  grid-template-rows: repeat(4, 1fr);
+  align-items: center;
+  justify-content: center;
+
   margin: 20px;
+
+}
+
+.eventImage {
+  width: 100%;
+  height: 100%;
+}
+
+#eventTitle {
+  font-weight: bolder;
+}
+
+#eventInfo {
+  font-weight: bolder
 }
 
 .innerbox {
   padding: 10px;
   width: 95%;
-  height: 100%;
+  height: 95%;
   // margin: 15px auto;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, .2);
 }
 
-.displayContainer {
- border: solid 1px blue;
-  grid-column-start: 2;
-  grid-column-end: end;
-}
+// .displayContainer {
+//  border: solid 1px blue;
+//   grid-column-start: 2;
+//   grid-column-end: end;
+// }
 
 .eventImageBox {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
-  grid-row-end: 6;
-  
+  grid-row-end: end;
+
+  padding-top: 6px;
 }
 
 .eventTitleBox {
@@ -89,13 +106,13 @@ body {
   grid-column-start: 2;
   grid-column-end: end;
   grid-row-start: 2;
-  grid-row-end: 4;
+  grid-row-end: 3;
 }
 
 .eventLocationBox{
   grid-column-start: 2;
   grid-column-end: end;
-  grid-row-start: 4;
+  grid-row-start: 3;
   grid-row-end: end;
 }
 
