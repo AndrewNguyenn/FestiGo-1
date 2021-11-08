@@ -1,6 +1,7 @@
 
 // fonts 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 // variables
 $boxShadow: 0px 5px 15px 5px rgba(0,0,0,0.34);;
 $videoBackgroundColor: rgba(9, 28, 38, 0.673);
@@ -26,12 +27,12 @@ body{
     min-height: 100vh;
 }
 .video{
-    object-fit: cover;
-    width: 100vw;
+    
+    width: 120vw;
     height: 100vh;
     position: fixed;
      top: 0;
-    left: 0;
+    left: 20;
     z-index: -1;
 }
 .welcomeBack{

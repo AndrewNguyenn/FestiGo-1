@@ -43,7 +43,7 @@ module.exports = {
                     }  
                   }
                 ]
-              }
+              },
         ]
     },
     devServer: {
@@ -52,5 +52,11 @@ module.exports = {
             directory: path.resolve(__dirname, 'build'),
         },
         historyApiFallback: true,
+        proxy: {
+          '/api':{
+            target: 'http://localhost:3000/',
+            secure: false,
+          }
+        }
     },
 };
