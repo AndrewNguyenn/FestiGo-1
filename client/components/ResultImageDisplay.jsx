@@ -5,7 +5,12 @@ import { connect } from 'react-redux';
 
 const ResultImageDisplay = props => (
   <div className="eventImageBox" id="eventImage">
-    <label htmlFor="eventImage">Image here: </label>
+    <div className="innerbox">
+      <label htmlFor="eventImage">Image here: </label>
+      <p>
+        <span id="eventImage">{props.eventDescription}</span>
+      </p>
+    </div>
   </div>
 )
 

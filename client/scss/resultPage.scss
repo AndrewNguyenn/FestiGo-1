@@ -11,18 +11,47 @@
 }
 
 body {
-  padding-top:10px;
+  
 }
 
+#intro {
+  height: 100%;
+}
+
+.landingPage {
+  margin: 0 auto 0 auto;
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+
+  background: url("https://wallpapercave.com/wp/wp1889481.jpg")no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
 .result-container {
-  max-width: 80%;
+  min-width: 70%;
+  // max-width: 80%;
   max-height: 700px;
-  min-height: 500px;
+  // min-height: 500px;
   box-shadow: 10px;
 
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
+}
+
+.innerbox {
+  padding: 10px;
+  width: 95%;
+  height: 100%;
+  margin: 15px auto;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, .2);
 }
 
 .eventImageBox {
@@ -60,20 +89,6 @@ body {
   grid-row-end: end;
 }
 
-.outerBox {
-  max-width: 650px;
-  margin: 0 auto;
-  padding: 10px;
-  box-shadow: 10px 15px 39px rgba(0, 0, 0, .2);
-  border-radius: 5px;
-}
-
-.innerbox {
-  padding: 10px;
-  width:95%;
-  margin: 15px auto;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, .2);
-}
 
 .displayBox {
   overflow: auto;

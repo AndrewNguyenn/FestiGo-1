@@ -19,14 +19,14 @@ class ResultMainContainer extends Component {
   // });
   render() {
     return(
+      <div class="landingPage">
       <div className="result-container">
-        {/* <div className="outerBox"> */}
           <ResultImageDisplay/>
           <ResultTitleDisplay/>
           <ResultEventDisplay/>
           <ResultDescriptionDisplay/>
           <ResultLocationDisplay/>
-        {/* </div> */}
+      </div>
       </div>
     );
   }

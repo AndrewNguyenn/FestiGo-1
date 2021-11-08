@@ -5,8 +5,14 @@ import { connect } from 'react-redux';
 
 const ResultEventDisplay = props => (
   <div className="eventInfoBox" id="eventInfo">
-    <label htmlFor="eventInfo">EventInfo here: </label>
+    <div className="innerbox">
+      <label htmlFor="eventInfo">EventInfo here: </label>
+      <p>
+        <span id="eventInfo">{props.eventInfo}</span>
+      </p>
+    </div>
   </div>
+
 )
 
 // export default connect(mapStateToProps, null)(ResultEventDisplay);
