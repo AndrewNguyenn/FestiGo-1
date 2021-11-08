@@ -11,11 +11,7 @@
 }
 
 body {
-  
-}
 
-#intro {
-  height: 100%;
 }
 
 .landingPage {
@@ -24,6 +20,7 @@ body {
   min-height: 100vh;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
 
   background: url("https://wallpapercave.com/wp/wp1889481.jpg")no-repeat center center fixed;
@@ -33,25 +30,37 @@ body {
   background-size: cover;
 }
 
+.displayPage {
+  margin: 50px;
+  background-color: transparent;
+}
 
 .result-container {
-  min-width: 70%;
+  min-width: 50%;
   // max-width: 80%;
-  max-height: 700px;
+  min-height: 30%;
   // min-height: 500px;
   box-shadow: 10px;
 
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
+  
+  margin: 20px;
 }
 
 .innerbox {
   padding: 10px;
   width: 95%;
   height: 100%;
-  margin: 15px auto;
+  // margin: 15px auto;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, .2);
+}
+
+.displayContainer {
+ border: solid 1px blue;
+  grid-column-start: 2;
+  grid-column-end: end;
 }
 
 .eventImageBox {
@@ -59,6 +68,7 @@ body {
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 6;
+  
 }
 
 .eventTitleBox {
@@ -89,40 +99,3 @@ body {
   grid-row-end: end;
 }
 
-
-.displayBox {
-  overflow: auto;
-  padding-top: 10px;
-}
-
-.marketBox {
-  padding: 5px;
-  width:30%;
-  margin: 5px 5px 13px 10px;
-  float:left;
-  font-size: .8em;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, .2);
-}
-
-#header {
-  text-align: center;
-  letter-spacing: .2em;
-  margin-bottom: 10px;
-}
-
-#totals {
-  line-height: 1.5em;
-}
-
-input {
-  margin: 10px;
-}
-
-label {
-  font-weight: bold;
-}
-
-button {
-  padding: 3px;
-  margin: 3px;
-}

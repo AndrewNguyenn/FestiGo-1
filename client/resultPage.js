@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import ResultMainContainer from './components/ResultMainContainer.jsx'
+import ResultsDisplay from './components/ResultsDisplay.jsx'
 // import store from './store';
 
 // so webpack can use SCSS
@@ -17,6 +17,6 @@ import styles from './scss/resultPage.scss';
 //   document.querySelector('#contents')
 // );
 render (
-  <ResultMainContainer/>,
+  <ResultsDisplay/>,
   document.getElementById("contents")
 );
